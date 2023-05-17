@@ -140,7 +140,7 @@ router.get("/edit-product", async (req, res) => {
     console.log(error);
   }
 });
-
+   
 
 router.get("/accounts", auth, (req, resp) => {
   resp.render("accounts");

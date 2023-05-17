@@ -1,4 +1,4 @@
-const express = require("express"); 
+const express = require("express");
 const router = express.Router();
 const User = require("../model/user");
 const bcrypt = require("bcryptjs");
@@ -28,7 +28,7 @@ router.post("/useradd", async (req, resp) => {
         const doc = new User({
           name: name,
           password: password,
-          email: email,  
+          email: email,
           phoneNumber: phoneNumber,
         });
         await doc.save();
@@ -46,7 +46,7 @@ router.post("/userlogin", async (req, resp) => {
   const email = req.body.email;
   const password = req.body.password;
   try {
-    const userData = await User.findOne({email: email});
+    const userData = await User.findOne({ email: email });
     const valid = await bcrypt.compare(password, userData.password);
     const token = await jwt.sign({ id: userData._id }, process.env.token);
     if (valid) {
