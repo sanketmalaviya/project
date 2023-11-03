@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+  const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs"); 
 const userSchema = new mongoose.Schema({
   name: {
@@ -21,13 +21,13 @@ const userSchema = new mongoose.Schema({
     type: Number,
     require: true,
     trim: true,
-  },
+  },  
   date: {
     type: Date,
     default: Date.now(),
   
   },
-});
+  });
 
 userSchema.pre("save", async function (next) {
   try {
